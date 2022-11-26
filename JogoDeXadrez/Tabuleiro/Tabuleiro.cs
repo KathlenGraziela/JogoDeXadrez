@@ -25,15 +25,15 @@ namespace tabuleiro
             return pecas[pos.linha, pos.coluna];
         }
 
-        public bool existePeca(Posicao pos)
+        public bool ExistePeca(Posicao pos)
         {
             ValidarPosicao(pos);
             return peca(pos) != null;
         }
 
-        public void colocarPeca(Peca p, Posicao pos) 
+        public void ColocarPeca(Peca p, Posicao pos) 
         {
-            if (existePeca(pos)) 
+            if (ExistePeca(pos)) 
             {
                 throw new TabuleiroException("Já existe uma peça nessa posição!");
             }
@@ -51,7 +51,7 @@ namespace tabuleiro
             return aux;
         }
 
-        public bool posicaoValida(Posicao pos)
+        public bool PosicaoValida(Posicao pos)
         {
             if (pos.linha < 0 || pos.linha >=linhas || pos.coluna < 0 || pos.coluna >= colunas)
             {
@@ -62,7 +62,7 @@ namespace tabuleiro
 
         public void ValidarPosicao(Posicao pos)
         {
-            if(!posicaoValida(pos))
+            if(!PosicaoValida(pos))
             {
                 throw new TabuleiroException("Posição inválida!");
             }
