@@ -20,49 +20,54 @@ namespace xadrez
         public override bool[,] MovimentosPossiveis()
         {
             bool[,] mat = new bool[tab.linhas, tab.colunas];
+
             Posicao pos = new Posicao(0, 0);
 
-            //acima
+            // acima
             pos.DefinirValores(posicao.linha - 1, posicao.coluna);
-            while (tab.PosicaoValida(pos) & PodeMover(pos))
+            while (tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
                     break;
-
+                }
                 pos.linha = pos.linha - 1;
             }
 
-            //abaixo
+            // abaixo
             pos.DefinirValores(posicao.linha + 1, posicao.coluna);
-            while (tab.PosicaoValida(pos) & PodeMover(pos))
+            while (tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
                     break;
-
+                }
                 pos.linha = pos.linha + 1;
             }
 
-            //direitaa
+            // direita
             pos.DefinirValores(posicao.linha, posicao.coluna + 1);
-            while (tab.PosicaoValida(pos) & PodeMover(pos))
+            while (tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
                     break;
-
+                }
                 pos.coluna = pos.coluna + 1;
             }
 
-            //esquerda
+            // esquerda
             pos.DefinirValores(posicao.linha, posicao.coluna - 1);
-            while (tab.PosicaoValida(pos) & PodeMover(pos))
+            while (tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
+                {
                     break;
-
+                }
                 pos.coluna = pos.coluna - 1;
             }
 
