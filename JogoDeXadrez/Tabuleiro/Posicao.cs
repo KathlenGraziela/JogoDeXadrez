@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace Tabuleiro
+﻿namespace tabuleiro
 {
     class Posicao
     {
